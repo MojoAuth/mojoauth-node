@@ -1,23 +1,45 @@
-# Node-js-sdk
-Node.js SDK based on MojoAuth APIs.
+<p align="center">
+  <a href="https://www.mojoauth.com">
+    <img alt="MojoAuth" src="https://mojoauth.com/assets/images/logo.svg" width="200" />
+  </a>
+</p>
 
-![Home Image](https://mojoauth-cdn.netlify.app/assets/images/coming-soon.png)
-
-
-## Introduction ##
-
-MojoAuth Node.js is a wrapper which provides access to MojoAuth Platform APIs.
-
-MojoAuth provides a secure and delightful experience to your customer with passwordless.
-Here, you'll find comprehensive guides and documentation to help you to start working with MojoAuth APIs.
-
-Please visit [here](http://www.mojoauth.com/) for more information.
-
-# Installing
-
-	$ npm install mojoauth-sdk
+<h1 align="center">
+  NodeJS SDK
+</h1>
 
 
-## Documentation
+NodeJs sdk for MojoAuth passwordless authentication
 
-[Getting Started](https://mojoauth.com/docs/) - Everything you need to begin using this SDK.
+## Documentation 
+
+[Configuration](https://mojoauth.com/docs) - Everything you need to begin using the MojoAuth Node JS SDK.
+
+## Installation 
+
+Add project dependency and MojoAuth SDK using npm by running the following command in the command line:
+
+```npm install express body-parser mojoauth-sdk```
+
+Upon installation, you will find MojoAuth Node.js SDK under the node module.
+
+## Configure Project
+
+Before making any API calls, the MojoAuth API client must be initialized with your Loginradius API key.
+
+```
+var config = {
+    apiKey: '<Your API Key>',
+};
+
+var ma = require('mojoauth-sdk')(config);
+```
+## How to contribute
+
+We appreciate all kinds of contributions from anyone, be it finding an issue or writing a blog.
+
+Please check the [contributing guide](CONTRIBUTING.md) to become a contributor.
+
+## License
+
+For more information on licensing, please refer to [License](https://github.com/LoginRadius/engineering-portal/blob/master/LICENSE)
