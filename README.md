@@ -1,4 +1,14 @@
-# node-sdk
+<p align="center">
+  <a href="https://www.mojoauth.com">
+    <img alt="MojoAuth" src="https://mojoauth.com/assets/images/logo.svg" width="200" />
+  </a>
+</p>
+
+<h1 align="center">
+  NodeJS SDK
+</h1>
+
+
 NodeJs sdk for MojoAuth passwordless authentication
 
 ## Documentation 
@@ -24,4 +34,12 @@ var config = {
 
 var ma = require('mojoauth-sdk')(config);
 ```
+## How to contribute
 
+We appreciate all kinds of contributions from anyone, be it finding an issue or writing a blog.
+
+Please check the [contributing guide](CONTRIBUTING.md) to become a contributor.
+
+## License
+
+For more information on licensing, please refer to [License](https://github.com/LoginRadius/engineering-portal/blob/master/LICENSE)
