@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://cdn.mojoauth.com/js/mojoauth.min.js">
+    </script>
+</head>
+
+<body>
+    <h2>MojoAuth Demo </h2>
+    <div id="mojoauth-passwordless-form"></div>
+    <script>
+        const mojoauth = new MojoAuth("769304af-a9b5-4af9-aa48-7978921825db");
+        // Use signInWithEmailOTP() for authentication using Email OTP
+        var loginUser = async () => {
+            try {
+                const response = await mojoauth.signInWithMagicLink();
+                // API RESPONSE
+                // {
+                //     "authenticated": boolean,
+                //     "oauth": {
+                //         "access_token": JWT,
+                //         "id_token": JWT,
+                //         "refresh_token": TOKEN,
+                //         "expires_in": TIMESTAMP,
+                //         "token_type": STRING
+                //     },
+                //     "user": {
+                //         "created_at": TIMESTAMP,
+                //         "updated_at": TIMESTAMP,
+                //         "issuer": STRING,
+                //         "user_id": STRING,
+                //         "identifier": STRING
+                //     }
+                // }
+                console.log(response);
+                if(response){
+                    const data = await fetch({url:"/verify", body: JSON.stringify({token:response.oauth.access_token})})
+                    const resp = data.json();
+                }
+            } catch (error) {
+                console.log(error);
+                alert("Error occurred while logging-in")
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

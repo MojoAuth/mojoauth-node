@@ -1,13 +1,15 @@
 {
-  "name": "mojoauth-sdk",
+  "name": "mojoauth",
   "scripts": {},
   "version": "1.1.0",
   "description": "A MojoAuth SDK for node.js",
   "homepage": "https://www.mojoauth.com",
   "main": "./sdk/util/mojoauth.js",
   "dependencies": {
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "jwk-to-pem": "^2.0.5"
+    "jwk-to-pem": "^2.0.5",
+    "mojoauth-sdk": "^1.1.0"
   },
   "repository": {
     "type": "git",
