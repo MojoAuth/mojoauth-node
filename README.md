@@ -9,7 +9,7 @@
 </h1>
 
 
-NodeJs sdk for MojoAuth passwordless authentication
+NodeJs sdk for MojoAuth Password-less Authentication.
 
 ## Documentation 
 
@@ -34,7 +34,7 @@ var config = {
 
 var ma = require('mojoauth-sdk')(config);
 ```
-## How to contribute
+## How to Contribute
 
 We appreciate all kinds of contributions from anyone, be it finding an issue or writing a blog.
 
