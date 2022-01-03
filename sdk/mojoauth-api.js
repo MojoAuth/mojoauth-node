@@ -35,7 +35,10 @@ module.exports = function (config) {
         const publicKey = jwktopem(firstKey)
         try {
           const decoded = jwt.verify(token, publicKey)
-          resolve(decoded)
+          resolve({
+            "isValid": true,
+            "access_token": token
+          })
         } catch (e) {
           reject(e)
         }
