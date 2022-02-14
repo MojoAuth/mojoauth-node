@@ -25,7 +25,7 @@ Upon installation, you will find MojoAuth Node.js SDK under the node module.
 
 ## Configure Project
 
-Before making any API calls, the MojoAuth API client must be initialized with your Loginradius API key.
+Before making any API calls, the MojoAuth API client must be initialized with your MojoAuth API key.
 
 ```
 var config = {
@@ -42,4 +42,4 @@ Please check the [contributing guide](CONTRIBUTING.md) to become a contributor.
 
 ## License
 
-For more information on licensing, please refer to [License](https://github.com/LoginRadius/engineering-portal/blob/master/LICENSE)
+For more information on licensing, please refer to [License](https://github.com/MojoAuth/mojoauth-node/blob/main/LICENSE)
