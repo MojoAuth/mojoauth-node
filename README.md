@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.mojoauth.com">
-    <img alt="MojoAuth" src="https://mojoauth.com/assets/images/logo.svg" width="200" />
+    <img alt="MojoAuth" src="https://mojoauth.com/blog/assets/images/logo.svg" width="200" />
   </a>
 </p>
 
@@ -13,7 +13,7 @@ NodeJs sdk for MojoAuth passwordless authentication
 
 ## Documentation 
 
-[Configuration](https://mojoauth.com/docs) - Everything you need to begin using the MojoAuth Node JS SDK.
+[Configuration](https://mojoauth.com/docs/guides/nodejs/) - Everything you need to begin using the MojoAuth Node JS SDK.
 
 ## Installation 
 
