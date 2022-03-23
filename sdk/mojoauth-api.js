@@ -84,11 +84,11 @@ module.exports = function (config) {
   }
 
   return {
-    signinWithMagicLink: signinWithMagicLink,
-    verifyToken: verifyToken,
-    pingStatus: pingStatus,
-    signinWithEmailOTP: signinWithEmailOTP,
-    verifyOtp: verifyOtp,
+    signinWithMagicLink,
+    verifyToken,
+    pingStatus,
+    signinWithEmailOTP,
+    verifyOtp,
 
     /** @deprecated due to misspelling. Use `pingStatus` instead. */
     pingStaus: pingStatus,
