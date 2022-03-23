@@ -48,7 +48,7 @@ module.exports = function (config) {
     });
   }
 
-  function pingStaus(guid) {
+  function pingStatus(guid) {
     var queryParameters = {};
 
     queryParameters.api_Key = config.apiKey;
@@ -86,9 +86,12 @@ module.exports = function (config) {
   return {
     signinWithMagicLink: signinWithMagicLink,
     verifyToken: verifyToken,
-    pingStaus: pingStaus,
+    pingStatus: pingStatus,
     signinWithEmailOTP: signinWithEmailOTP,
-    verifyOtp: verifyOtp
+    verifyOtp: verifyOtp,
+
+    /** @deprecated due to misspelling. Use `pingStatus` instead. */
+    pingStaus: pingStatus,
   };
 }
 
