@@ -86,11 +86,12 @@ module.exports = function (config) {
   return {
     signinWithMagicLink,
     verifyToken,
+    /** @since 1.2.0 (spelled "pingStaus" before then) */
     pingStatus,
     signinWithEmailOTP,
     verifyOtp,
 
-    /** @deprecated due to misspelling. Use `pingStatus` instead. */
+    /** @deprecated since 1.2.0 due to misspelling. Use `pingStatus` instead. */
     pingStaus: pingStatus,
   };
 }
