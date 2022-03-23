@@ -48,11 +48,11 @@ module.exports = function (config) {
     });
   }
 
-  function pingStatus(guid) {
+  function pingStatus(stateId) {
     var queryParameters = {};
 
     queryParameters.api_Key = config.apiKey;
-    queryParameters.guid = guid;
+    queryParameters.state_id = stateId;
 
     var resourcePath = 'users/status';
 
