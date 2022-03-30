@@ -51,7 +51,7 @@ module.exports = function (config = {}) {
       'X-API-Key': config.apiKey,
     }
     if (isApiSecret) {
-      customHeader['X-Secret-Key'] = config.apiSecret
+      customHeader['X-API-Secret'] = config.apiSecret
 
     }
     Object.assign(options.headers, customHeader);
