@@ -5,6 +5,13 @@
 var https = require('https');
 var path = require('path');
 
+/**
+ * @param {{
+ *   apiKey: string,
+ *   apiSecret?: string,
+ *   apiDomain?: string
+ * }} config
+ */
 module.exports = function (config = {}) {
   if (config.apiKey === undefined) {
     console.error('Please set API Credentails');
