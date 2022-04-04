@@ -1,7 +1,7 @@
 {
   "name": "mojoauth-sdk",
   "scripts": {},
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A MojoAuth SDK for node.js",
   "homepage": "https://www.mojoauth.com",
   "main": "./sdk/util/mojoauth.js",
