@@ -40,10 +40,12 @@ module.exports = function (config) {
     });
   }
 
-  function pingStaus(guid) {
+  function pingStatus(stateId) {
     var queryParameters = {};
-    queryParameters.guid = guid;
 
+    queryParameters.api_Key = config.apiKey;
+    queryParameters.state_id = stateId;
+    
     var resourcePath = 'users/status';
 
     return config.request('GET', resourcePath, queryParameters, "");
@@ -68,11 +70,15 @@ module.exports = function (config) {
   }
 
   return {
-    signinWithMagicLink: signinWithMagicLink,
-    verifyToken: verifyToken,
-    pingStaus: pingStaus,
-    signinWithEmailOTP: signinWithEmailOTP,
-    verifyOtp: verifyOtp
+    signinWithMagicLink,
+    verifyToken,
+    /** @since 1.2.0 (spelled "pingStaus" before then) */
+    pingStatus,
+    signinWithEmailOTP,
+    verifyOtp,
+
+    /** @deprecated since 1.2.0 due to misspelling. Use `pingStatus` instead. */
+    pingStaus: pingStatus,
   };
 }
 
