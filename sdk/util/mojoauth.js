@@ -5,6 +5,13 @@
 var https = require('https');
 var path = require('path');
 
+/**
+ * @param {{
+ *   apiKey: string,
+ *   apiSecret?: string,
+ *   apiDomain?: string
+ * }} config
+ */
 module.exports = function (config = {}) {
   if (config.apiKey === undefined) {
     console.error('Please set API Credentails');
@@ -14,14 +21,7 @@ module.exports = function (config = {}) {
   var helper = require(config.HELPER_PATH);
 
   config.request = function (type, resourcePath, queryParameters, formData) {
-    var isApiSecret, headers;
-    if (queryParameters.apiSecret) {
-      isApiSecret = queryParameters.apiSecret;
-      delete queryParameters.apiSecret;
-    }
-
-
-    headers = { 'Content-Type': 'application/json' };
+    var headers = { 'Content-Type': 'application/json' };
 
     var queryString = helper.getQueryString(queryParameters);
 
@@ -50,9 +50,8 @@ module.exports = function (config = {}) {
     var customHeader = {
       'X-API-Key': config.apiKey,
     }
-    if (isApiSecret) {
-      customHeader['X-Secret-Key'] = config.apiSecret
-
+    if (config.apiSecret) {
+      customHeader['X-API-Secret'] = config.apiSecret
     }
     Object.assign(options.headers, customHeader);
     return new Promise(function (resolve, reject) {
