@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  NodeJS SDK
+  NodeJS Demo
 </h1>
 
 
