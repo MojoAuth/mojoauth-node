@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1 style="text-align: center;"><%= title %></h1>
+  <p style="text-align: center;"><%= subtitle %></p>
+  <div id="mojoauth-passwordless-form"></div>
+  <script src="https://cdn.mojoauth.com/js/mojoauth.min.js">
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+  <script>
+    const mojoauth = new MojoAuth("API_KEY", {
+      language: 'language_code',
+      redirect_url: "<%= baseurl %>users/verify",
+      source: [{ type: "email", feature: "magiclink" }],
+    })
+    // Use source:[{type: "email", feature: "otp"}] for authentication using Email OTP
+    // Use source:[{type: "phone", feature: "otp"}] for authentication using SMS Authentication
+
+    mojoauth.signIn().then(response => {
+      const token_request = {
+        token: response.oauth.access_token
+      }
+
+      fetch("<%= baseurl %>users/verify", {
+        method: "POST",
+        body: JSON.stringify(token_request),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        console.log(response)
+        // indicates whether the response is successful (status code 200-299) or not
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`)
+        }
+        return response.json()
+      }).then(data => {
+        if (data.access_token && data.isValid) {
+          window.location = "/users/myaccount"; 
+        }
+      })
+      .catch(error => console.log(error))
+    })
+    .catch(error => console.log(error))
+
+  </script>
+</body>
+</html>
