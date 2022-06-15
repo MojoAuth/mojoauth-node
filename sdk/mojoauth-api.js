@@ -106,8 +106,8 @@ module.exports = function (config) {
 
   function verifyEmailOTP(otp, state_id) {  
     var bodyParameters = {};
-    queryPabodyParametersrameters.otp = otp;
-    queryPabodyParametersrameters.state_id = state_id;
+    bodyParameters.otp = otp;
+    bodyParameters.state_id = state_id;
 
     var resourcePath = 'users/emailotp/verify';
 
