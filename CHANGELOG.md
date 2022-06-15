@@ -1,3 +1,9 @@
+## Version 1.3.0
+
+- Renamed `mojoAPI.verifyOtp` to `verifyEmailOTP`, retaining a deprecated `verifyOtp` alias to prevent breaking changes.
+- Added  query parameter in  `mojoAPI.signinWithMagicLink` and `mojoAPI.signinWithEmailOTP`  to pass `language` and `redirect_url` query parameter name.
+- Added  resend function for both magiclink and email OTP  `mojoAPI.resendMagicLink` and `mojoAPI.resendhEmailOTP`.
+
 ## Version 1.2.0
 
 - Enabled use of MojoAuth API secret.

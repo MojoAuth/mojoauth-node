@@ -4,13 +4,38 @@
 */
 module.exports = function (config) {
 
-  function signinWithMagicLink(email) {
+  function signinWithMagicLink(email, optionalParameter) {
     var bodyParameters = {};
     bodyParameters.email = email;
 
+    var queryParameters = {};
+    if (optionalParameter.language) {
+      queryParameters.language = optionalParameter.language;
+    }
+
+    if (optionalParameter.redirect_url) {
+      queryParameters.redirect_url = optionalParameter.redirect_url;
+    }
+
     var resourcePath = 'users/magiclink';
 
-    return config.request('POST', resourcePath, "", bodyParameters);
+    return config.request('POST', resourcePath, queryParameters, bodyParameters);
+  }
+
+  function resendMagicLink(state_id, optionalParameter) {
+    var bodyParameters = {};
+    var queryParameters = {state_id: state_id};
+    if (optionalParameter.language) {
+      queryParameters.language = optionalParameter.language;
+    }
+
+    if (optionalParameter.redirect_url) {
+      queryParameters.redirect_url = optionalParameter.redirect_url;
+    }
+
+    var resourcePath = 'users/magiclink/resend';
+
+    return config.request('POST', resourcePath, queryParameters, bodyParameters);
   }
 
   function verifyToken(token) {
@@ -51,34 +76,59 @@ module.exports = function (config) {
     return config.request('GET', resourcePath, queryParameters, "");
   }
 
-  function signinWithEmailOTP(email) {
+  function signinWithEmailOTP(email, optionalParameter) {
     var bodyParameters = {};
     bodyParameters.email = email;
 
+    var queryParameters = {};
+    if (optionalParameter.language) {
+      queryParameters.language = optionalParameter.language;
+    }
+
     var resourcePath = 'users/emailotp';
+
+    return config.request('POST', resourcePath, queryParameters, bodyParameters);
+  }
+
+  function resendEmailOTP(state_id, optionalParameter) {
+    var bodyParameters = {};
+
+    var queryParameters = {state_id: state_id};
+
+    if (optionalParameter.language) {
+      queryParameters.language = optionalParameter.language;
+    }
+
+    var resourcePath = 'users/emailotp/resend';
+
+    return config.request('POST', resourcePath, queryParameters, bodyParameters);
+  }
+
+  function verifyEmailOTP(otp, state_id) {  
+    var bodyParameters = {};
+    queryPabodyParametersrameters.otp = otp;
+    queryPabodyParametersrameters.state_id = state_id;
+
+    var resourcePath = 'users/emailotp/verify';
 
     return config.request('POST', resourcePath, "", bodyParameters);
   }
 
-  function verifyOtp(otp) {
-    var queryParameters = {};
-    queryParameters.otp = otp;
-
-    var resourcePath = 'users/emailotp/verify';
-
-    return config.request('GET', resourcePath, queryParameters, "");
-  }
-
   return {
     signinWithMagicLink,
+    resendMagicLink,
     verifyToken,
     /** @since 1.2.0 (spelled "pingStaus" before then) */
     pingStatus,
     signinWithEmailOTP,
-    verifyOtp,
+    resendEmailOTP,
+    /** @since 1.3.0 (spelled "verifyotp" before then) */
+    verifyEmailOTP,
 
     /** @deprecated since 1.2.0 due to misspelling. Use `pingStatus` instead. */
     pingStaus: pingStatus,
+    /** @deprecated since 1.3.0 due to misspelling. Use `verifyOTP` instead. */
+    verifyOtp: verifyEmailOTP,
   };
 }
 
