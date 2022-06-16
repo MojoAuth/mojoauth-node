@@ -1,3 +1,6 @@
+## Version 1.3.1
+- Added decoded jwt token value in the response object as  `profile` for  `mojoAPI.verifyToken`.
+
 ## Version 1.3.0
 
 - Renamed `mojoAPI.verifyOtp` to `verifyEmailOTP`, retaining a deprecated `verifyOtp` alias to prevent breaking changes.
