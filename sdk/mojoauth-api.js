@@ -51,10 +51,11 @@ module.exports = function (config) {
         const [ firstKey ] = jwksResponse.keys
         const publicKey = jwktopem(firstKey)
         try {
-          const decoded = jwt.verify(token, publicKey)
+          const profile = jwt.verify(token, publicKey)
           resolve({
             "isValid": true,
-            "access_token": token
+            "access_token": token,
+             "profile": profile
           })
         } catch (e) {
           reject(e)
