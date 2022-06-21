@@ -1,3 +1,6 @@
+## Version 1.3.2
+- Added phone otp functions `mojoAPI.signinWithPhoneOTP`, `mojoAPI.resendPhoneOTP` and `mojoAPI.verifyPhoneOTP`
+
 ## Version 1.3.1
 - Added decoded jwt token value in the response object as  `profile` for  `mojoAPI.verifyToken`.
 
