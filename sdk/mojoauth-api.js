@@ -115,6 +115,44 @@ module.exports = function (config) {
     return config.request('POST', resourcePath, "", bodyParameters);
   }
 
+  function signinWithPhoneOTP(phone, optionalParameter) {
+    var bodyParameters = {};
+    bodyParameters.phone = phone;
+
+    var queryParameters = {};
+    if (optionalParameter.language) {
+      queryParameters.language = optionalParameter.language;
+    }
+
+    var resourcePath = 'users/phone';
+
+    return config.request('POST', resourcePath, queryParameters, bodyParameters);
+  }
+
+  function resendPhoneOTP(state_id, optionalParameter) {
+    var bodyParameters = {};
+
+    var queryParameters = {state_id: state_id};
+
+    if (optionalParameter.language) {
+      queryParameters.language = optionalParameter.language;
+    }
+
+    var resourcePath = 'users/phone/resend';
+
+    return config.request('POST', resourcePath, queryParameters, bodyParameters);
+  }
+
+  function verifyPhoneOTP(otp, state_id) {  
+    var bodyParameters = {};
+    bodyParameters.otp = otp;
+    bodyParameters.state_id = state_id;
+
+    var resourcePath = 'users/phone/verify';
+
+    return config.request('POST', resourcePath, "", bodyParameters);
+  }
+
   return {
     signinWithMagicLink,
     resendMagicLink,
@@ -125,6 +163,10 @@ module.exports = function (config) {
     resendEmailOTP,
     /** @since 1.3.0 (spelled "verifyotp" before then) */
     verifyEmailOTP,
+
+    signinWithPhoneOTP,
+    resendPhoneOTP,
+    verifyPhoneOTP,
 
     /** @deprecated since 1.2.0 due to misspelling. Use `pingStatus` instead. */
     pingStaus: pingStatus,
