@@ -1,4 +1,4 @@
-## Version 1.3.2
+## Version 1.4.0
 - Added phone otp functions `mojoAPI.signinWithPhoneOTP`, `mojoAPI.resendPhoneOTP` and `mojoAPI.verifyPhoneOTP`
 
 ## Version 1.3.1
